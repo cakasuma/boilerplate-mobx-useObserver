@@ -22,9 +22,11 @@ class userStore {
     // append all user store from session storage
   };
 
-  init = () => {
+  onLoad = () => {
     this.appendUserStore();
   };
+
+  onUnload = () => {};
 }
 
 decorate(userStore, {
@@ -34,5 +36,7 @@ decorate(userStore, {
   setUserName: action,
   debounceUserStore: action,
   appendUserStore: action,
+  onLoad: action,
+  onUnload: action,
 });
 export default userStore;

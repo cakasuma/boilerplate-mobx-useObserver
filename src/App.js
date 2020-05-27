@@ -10,7 +10,11 @@ const App = () => {
   const { userStore } = useStores();
 
   React.useEffect(() => {
-    userStore.init();
+    userStore.onLoad();
+
+    return () => {
+      userStore.onUnload();
+    };
   }, []);
   return (
     <Router>
